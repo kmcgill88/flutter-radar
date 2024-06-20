@@ -1,5 +1,5 @@
 #import "RadarFlutterPlugin.h"
-
+#import "flutter_radar-Swift.h"
 #import <RadarSDK/RadarSDK.h>
 
 @interface RadarFlutterPlugin() <RadarDelegate, RadarVerifiedDelegate>
@@ -20,6 +20,7 @@
     FlutterMethodChannel *channel = [FlutterMethodChannel methodChannelWithName:@"flutter_radar" binaryMessenger:[registrar messenger]];
     instance.channel = channel;
     [registrar addMethodCallDelegate:instance channel:channel];
+    [RadarMapPlugin registerWithRegistrar: registrar];
 }
 
 - (instancetype)init {
